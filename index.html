@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 90vh;
+                background-color: rgb(189, 225, 122);
+                margin: 0;
+            }
+
+            #noButton, #yesButton {
+                position: relative;
+                margin: 0 10px;
+            }
+
+            .header_text {
+                font-family: 'Nunito', sans-serif;
+                font-size: 29px;
+                font-weight: bold;
+                color: white;
+                text-align: center;
+                margin: 20px 0;
+            }
+
+            .buttons {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                margin-top: 20px;
+            }
+
+            .btn {
+                background-color: #ffffff;
+                color: rgb(233, 48, 48);
+                padding: 15px 32px;
+                font-size: 16px;
+                border: none;
+                border-radius: 12px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+
+            .gif_container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 20px;
+            }
+
+            /* Mobile Responsiveness */
+            @media (max-width: 768px) {
+                body {
+                    height: auto;
+                    padding: 20px;
+                }
+
+                .header_text {
+                    font-size: 28px;
+                }
+
+                .btn {
+                    padding: 10px 24px;
+                    font-size: 14px;
+                }
+
+                .gif_container img {
+                    max-width: 90%;
+                }
+            }
+
+            @media (max-width: 414px) {
+                .header_text {
+                    font-size: 22px;
+                }
+
+                .btn {
+                    padding: 8px 20px;
+                    font-size: 12px;
+                }
+            }
+        </style>
+    </head> 
+    <body>
+        <div class="container">
+            <div>
+                <h1 class="header_text">If you are cute and beautiful it's a yes.</h1>
+                <h1 class="header_text">Do you wanna go out with me?</h1>
+            </div>
+            <div class="gif_container">
+                <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDdtZ2JiZDR0a3lvMWF4OG8yc3p6Ymdvd3g2d245amdveDhyYmx6eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif" alt="Cute animated illustration">
+            </div>
+            <div class="buttons">
+                <button class="btn" id="yesButton" onclick="nextPage()">Yes</button>
+                <button class="btn" id="noButton" onmouseover="moveButton()" onclick="moveButton()">No</button>
+            </div>
+        </div>
+
+        <script>
+            function nextPage() {
+                window.location.href = "yes.html";
+            }
+            
+            function moveButton() {
+                var x = Math.random() * (window.innerWidth - document.getElementById('noButton').offsetWidth) - 85;
+                var y = Math.random() * (window.innerHeight - document.getElementById('noButton').offsetHeight) - 48;
+                document.getElementById('noButton').style.left = `${x}px`;
+                document.getElementById('noButton').style.top = `${y}px`;
+            }
+        </script>
+    </body> 
+</html>
